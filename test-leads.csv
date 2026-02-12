@@ -1,0 +1,3 @@
+"timestamp","email","source","raw"
+"2026-02-03T09:00:00Z","lead1@example.com","grok_chat","{}"
+"2026-02-03T09:01:00Z","lead2@example.com","grok_chat","{}"

@@ -1,0 +1,2 @@
+invoice_number,date,client,description,amount,gst,paid,paid_date,file_path
+INV-2402-001,,,(template),750,0,false,

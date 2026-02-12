@@ -1,0 +1,9 @@
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{margin:0;color:#111;background:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:24px}
+.hero{background:#0f172a;color:#fff;padding:48px 0}
+.hero h1{margin:0;font-size:36px}
+.button{display:inline-block;padding:10px 16px;background:#ff5a36;color:#fff;border-radius:6px;text-decoration:none}
+.button.ghost{background:transparent;border:1px solid #fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{border:1px solid #eee;padding:16px;border-radius:8px}
