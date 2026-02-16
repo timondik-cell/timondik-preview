@@ -1,0 +1,53 @@
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches: ['chore/remove-node_modules']
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build  # Adjust if your build command is different (e.g., if no npm, remove this step)
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview
+          path: build/  # Adjust to your build output dir (e.g., dist/ or public/)
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: preview
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

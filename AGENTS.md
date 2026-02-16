@@ -1,5 +1,10 @@
 # AGENTS.md - Your Workspace
 
+## Rules
+- Continue with queued tasks without stopping until they're done (per user instruction on 2026-02-16).
+
+
+
 This folder is home. Treat it that way.
 
 ## First Run
